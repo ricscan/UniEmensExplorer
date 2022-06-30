@@ -1,0 +1,185 @@
+unit UfrmDma2;
+
+{$mode objfpc}{$H+}
+
+interface
+
+uses
+  Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, StdCtrls,
+  ComCtrls, ExtCtrls,UClsUniEmens;
+
+type
+
+  { TFrmDMA2 }
+
+  TFrmDMA2 = class(TForm)
+    GroupBox1: TGroupBox;
+    LeD0CF: TLabeledEdit;
+    LeD0CodComune: TLabeledEdit;
+    LeD0CAP: TLabeledEdit;
+    LeD0Cognome: TLabeledEdit;
+    LeD0Nome: TLabeledEdit;
+    ListView1: TListView;
+    PageControl1: TPageControl;
+    PageControl2: TPageControl;
+    Splitter1: TSplitter;
+    TabSheet1: TTabSheet;
+    TabSheet2: TTabSheet;
+    TabSheet3: TTabSheet;
+    TabSheet4: TTabSheet;
+    TabSheet5: TTabSheet;
+    TabSheet6: TTabSheet;
+    TVQuadri: TTreeView;
+    procedure Button1Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+    procedure LeD0CFChange(Sender: TObject);
+    procedure ListView1Click(Sender: TObject);
+  private
+    { private declarations }
+    Filename:String;
+    PosPa   :TPosPa;
+    Procedure FillForm;
+  public
+    { public declarations }
+    Constructor Create(TheOwner: TComponent;fn:String); Overload;
+    Destructor Destroy;
+  end;
+
+var
+  FrmDMA2: TFrmDMA2;
+
+implementation
+
+uses uParseXML;
+
+{$R *.lfm}
+
+{ TFrmDMA2 }
+
+constructor TFrmDMA2.Create(TheOwner: TComponent; fn: String);
+begin
+  inherited Create(TheOwner);
+  Filename:=fn;
+end;
+
+
+
+destructor TFrmDMA2.Destroy;
+begin
+
+end;
+procedure TFrmDMA2.Button2Click(Sender: TObject);
+begin
+
+end;
+
+procedure TFrmDMA2.Button1Click(Sender: TObject);
+begin
+
+end;
+
+
+procedure TFrmDMA2.FormCreate(Sender: TObject);
+begin
+  PosPa:=TPosPa.Create;
+  Caption:='DMA2 - '+Filename;
+  LoadDMA2(Filename,PosPa);
+  FillForm;
+end;
+
+procedure TFrmDMA2.FormDestroy(Sender: TObject);
+begin
+  PosPa.free;
+end;
+
+procedure TFrmDMA2.LeD0CFChange(Sender: TObject);
+begin
+  if LeD0CF.Text=''
+    then LeD0CF.Color:=clwhite
+    else LeD0CF.Color:=clYellow;
+end;
+
+procedure TFrmDMA2.ListView1Click(Sender: TObject);
+var
+  D0:TD0_DenunciaIndividuale;
+  i,t:Integer;
+  Nodo,child:TTreenode;
+begin
+  i:=ListView1.ItemIndex;
+  if i<>-1 then
+  begin
+    D0:= TD0_DenunciaIndividuale(ListView1.Items[i].data);
+    LeD0CF.Caption         :=D0.CFLavoratore;
+    LeD0Cognome.caption    :=D0.Cognome;
+    LeD0Nome.caption       :=D0.Nome;
+    LeD0CodComune.Caption  :=D0.DatiSedeLavoro.CodiceComune;
+    LeD0CAP.Caption        :=D0.DatiSedeLavoro.CAP;
+
+  TVQuadri.Items.Clear;
+  nodo:=TVQuadri.Items.Add(nil,'Quadri E0');
+  for t:=0 to Iscritto.QuadriE0.Count-1 do
+  begin
+    child:=TVQuadri.Items.AddChild(nodo,Iscritto.QuadriE0[t].Periodo);
+    child.Data:=Pointer(1000+t);
+  end;
+  nodo.Expanded:=true;
+
+  nodo:=TVQuadri.Items.Add(nil,'Quadri E1');
+  for t:=0 to Iscritto.QuadriE1.Count-1 do
+  begin
+    child:=TVQuadri.Items.AddChild(nodo,Iscritto.QuadriE1[t].Periodo);
+    child.Data:=Pointer(2000+t);
+  end;
+  nodo.Expanded:=true;
+
+  nodo:=TVQuadri.Items.Add(nil,'Quadri F1');
+  for t:=0 to Iscritto.QuadriF1.Count-1 do
+  begin
+    child:=TVQuadri.Items.AddChild(nodo,Iscritto.QuadriF1[t].Periodo);
+    child.Data:=Pointer(3000+t);
+  end;
+  nodo.Expanded:=true;
+
+  nodo:=TVQuadri.Items.Add(nil,'Quadri V1');
+  for t:=0 to Iscritto.QuadriV1.Count-1 do
+  begin
+    child:=TV1.Items.AddChild(nodo,Iscritto.QuadriV1[t].Periodo);
+    child.Data:=Pointer(4000+t);
+  end;
+  nodo.Expanded:=true;
+  end;
+end;
+
+procedure TFrmDMA2.FillForm;
+var
+  t:Integer;
+  D0:TD0_DenunciaIndividuale;
+  e:TListItem;
+  n:Integer;
+begin
+  ListView1.Items.clear;
+  for t:=0 to PosPa.Count-1 do
+    begin
+      D0 := PosPa.items[t];
+      e:=ListView1.Items.Add;
+      e.Caption:=inttostr(t+1);
+      e.subitems.add(D0.Nominativo);
+      e.subitems.Add(D0.CFLavoratore);
+      n:=D0.Lst_E0_PeriodoNelMese.Count;
+      if n>1
+        then e.SubItems.add('E0+')
+        else if n>0 then e.SubItems.add('E0')
+          else e.SubItems.add('');
+
+      e.Data:=D0;
+    end;
+end;
+
+
+
+
+
+end.
+

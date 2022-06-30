@@ -1,0 +1,31 @@
+object FrmDMA2Totali: TFrmDMA2Totali
+  Left = 498
+  Height = 520
+  Top = 277
+  Width = 940
+  Caption = 'DMA2 Totali'
+  ClientHeight = 520
+  ClientWidth = 940
+  OnClose = FormClose
+  LCLVersion = '2.2.0.4'
+  object SGZ: TStringGrid
+    Left = 8
+    Height = 464
+    Top = 8
+    Width = 864
+    ColCount = 10
+    DefaultColWidth = 70
+    RowCount = 20
+    TabOrder = 0
+    OnPrepareCanvas = SGZPrepareCanvas
+  end
+  object Button1: TButton
+    Left = 421
+    Height = 25
+    Top = 481
+    Width = 75
+    Caption = 'Chiudi'
+    OnClick = Button1Click
+    TabOrder = 1
+  end
+end

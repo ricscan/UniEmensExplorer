@@ -1,0 +1,35 @@
+object FrmMain: TFrmMain
+  Left = 1568
+  Height = 551
+  Top = 132
+  Width = 961
+  Caption = 'UniEmens DMA2 Explorer'
+  ClientHeight = 531
+  ClientWidth = 961
+  FormStyle = fsMDIForm
+  Menu = MainMenu1
+  LCLVersion = '1.4.0.4'
+  object CoolBar1: TCoolBar
+    Left = 0
+    Height = 32
+    Top = 0
+    Width = 961
+    Bands = <>
+    OnChange = CoolBar1Change
+  end
+  object MainMenu1: TMainMenu
+    left = 264
+    top = 56
+    object MenuItem1: TMenuItem
+      Caption = 'File'
+      object MenuItem2: TMenuItem
+        Caption = 'Apri UniEmens...'
+        OnClick = MenuItem2Click
+      end
+    end
+  end
+  object OpenDialog1: TOpenDialog
+    left = 492
+    top = 76
+  end
+end

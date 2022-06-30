@@ -1,0 +1,766 @@
+object FrmDMA2: TFrmDMA2
+  Left = 370
+  Height = 802
+  Top = 118
+  Width = 1184
+  Caption = 'FrmDMA2'
+  ClientHeight = 802
+  ClientWidth = 1184
+  FormStyle = fsMDIChild
+  OnClose = FormClose
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  Position = poScreenCenter
+  LCLVersion = '2.2.0.4'
+  object PageControl1: TPageControl
+    Left = 0
+    Height = 560
+    Top = 242
+    Width = 1184
+    ActivePage = TabSheet2
+    Align = alClient
+    TabIndex = 1
+    TabOrder = 0
+    OnChange = PageControl1Change
+    object TabSheet1: TTabSheet
+      Caption = 'Quadro D0'
+      ClientHeight = 532
+      ClientWidth = 1176
+      ParentFont = False
+      object Label3: TLabel
+        Left = 0
+        Height = 18
+        Top = 0
+        Width = 1176
+        Align = alTop
+        Caption = 'Dati identificativi dell''iscritto'
+        Font.CharSet = ANSI_CHARSET
+        Font.Color = clBlue
+        Font.Height = -16
+        Font.Name = 'Arial Rounded MT Bold'
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        ParentFont = False
+      end
+      object SG_D0: TStringGrid
+        Left = 0
+        Height = 514
+        Top = 18
+        Width = 696
+        Align = alLeft
+        ColCount = 4
+        DefaultColWidth = 200
+        DefaultRowHeight = 20
+        FixedCols = 2
+        FixedRows = 0
+        Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRowSelect, goSmoothScroll]
+        RowCount = 6
+        TabOrder = 0
+        ColWidths = (
+          227
+          200
+          200
+          200
+        )
+        Cells = (
+          6
+          0
+          0
+          'Codice Fiscale'
+          0
+          1
+          'Cognome'
+          0
+          2
+          'Nome'
+          0
+          3
+          '/Dati Sede Lavoro'
+          0
+          4
+          'Codice Comune'
+          0
+          5
+          'CAP'
+        )
+      end
+    end
+    object TabSheet2: TTabSheet
+      Caption = 'Quadro E0'
+      ClientHeight = 532
+      ClientWidth = 1176
+      object Label1: TLabel
+        Left = 0
+        Height = 18
+        Top = 0
+        Width = 1176
+        Align = alTop
+        Caption = 'Dati relativi ai periodi, alle retribuzioni e  ai contributi dovuti per il periodo di riferimento'
+        Font.CharSet = ANSI_CHARSET
+        Font.Color = clBlue
+        Font.Height = -16
+        Font.Name = 'Arial Rounded MT Bold'
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        ParentFont = False
+      end
+      object SG_E0: TStringGrid
+        Left = 0
+        Height = 514
+        Top = 18
+        Width = 656
+        Align = alLeft
+        ColCount = 4
+        DefaultColWidth = 200
+        DefaultDrawing = False
+        DefaultRowHeight = 18
+        FixedCols = 2
+        FixedRows = 0
+        Flat = True
+        Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goColSizing, goSmoothScroll]
+        RowCount = 60
+        TabOrder = 0
+        OnDrawCell = SG_V1DrawCell
+        ColWidths = (
+          227
+          200
+          200
+          200
+        )
+        Cells = (
+          47
+          0
+          0
+          'Causale Variazione'
+          0
+          1
+          'Cod Motivo Utilizzo'
+          0
+          2
+          'Giorno Inizio'
+          0
+          3
+          'Giorno Fine'
+          0
+          4
+          '/INQUADRAMENTO'
+          0
+          5
+          'Tipo Impiego'
+          0
+          6
+          'Tipo Servizio'
+          0
+          7
+          '% Retribuzione'
+          0
+          8
+          'Contratto'
+          0
+          9
+          'Qualifica'
+          0
+          10
+          'Part-Time : Tipo'
+          0
+          11
+          'Part-Time : Percentuale'
+          0
+          12
+          'Orario Sett. Ridotto'
+          0
+          13
+          'Orario Sett. Comp.'
+          0
+          14
+          'Regime Fine'
+          0
+          15
+          'Perc. asp. (L.300/70)'
+          0
+          16
+          '/Servizio presso altra amministrazione'
+          0
+          17
+          'Tipo Servizio'
+          0
+          18
+          'C.F. altra amministrazione'
+          0
+          19
+          'Progressivo'
+          0
+          20
+          '/GESTIONE PENSIONISTICA'
+          0
+          21
+          'Codice Gestione'
+          0
+          22
+          'Imponibile'
+          0
+          23
+          'Contributo'
+          0
+          24
+          'Contributo 1%'
+          0
+          25
+          'Imponibile eccedenza massimale'
+          0
+          26
+          'Giorni utili'
+          0
+          27
+          'Maggiorazione pens. D.lgs 165/2007'
+          0
+          28
+          'Retribuzione Virtuale'
+          0
+          29
+          'Eventi Calamitosi'
+          0
+          30
+          'Stipendio tabellare'
+          0
+          31
+          'Importo RIA'
+          0
+          32
+          '/GESTIONE PREVIDENZIALE'
+          0
+          33
+          'Codice Gestione'
+          0
+          34
+          'Contributo TFR'
+          0
+          35
+          'Imponibile TFR'
+          0
+          36
+          'Imponibile TFR Eccedena Massimale'
+          0
+          37
+          'Contributo TFS'
+          0
+          38
+          'Imponibile TFS'
+          0
+          39
+          'Imponibile TFS Eccedenza Massimale'
+          0
+          40
+          'Contributo Sospeso'
+          0
+          41
+          '/GESTIONE CREDITO'
+          0
+          42
+          'Codice Gestione'
+          0
+          43
+          'Imponibile'
+          0
+          44
+          'Contributo'
+          0
+          45
+          'Imponibile eccedenza massimale'
+          0
+          46
+          'Aderente Credito DM 45/2007'
+        )
+      end
+      object SG_Sgravi: TStringGrid
+        Left = 712
+        Height = 255
+        Top = 49
+        Width = 328
+        FixedCols = 0
+        RowCount = 10
+        TabOrder = 1
+        Cells = (
+          5
+          0
+          0
+          'Anno'
+          1
+          0
+          'Mese'
+          2
+          0
+          'Codice'
+          3
+          0
+          'AltroImporto'
+          4
+          0
+          'Importo'
+        )
+      end
+      object Label6: TLabel
+        Left = 712
+        Height = 18
+        Top = 24
+        Width = 51
+        Caption = 'Sgravi'
+        Font.CharSet = ANSI_CHARSET
+        Font.Color = clBlue
+        Font.Height = -16
+        Font.Name = 'Arial Rounded MT Bold'
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        ParentFont = False
+      end
+    end
+    object TabSheet3: TTabSheet
+      Caption = 'Quadro E1'
+      ClientHeight = 532
+      ClientWidth = 1176
+      object Label2: TLabel
+        Left = 0
+        Height = 18
+        Top = 0
+        Width = 1176
+        Align = alTop
+        Caption = 'Deti relativi alla posizione contributiva degli iscritti ai fondi pensione complementare'
+        Font.CharSet = ANSI_CHARSET
+        Font.Color = clBlue
+        Font.Height = -16
+        Font.Name = 'Arial Rounded MT Bold'
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        ParentFont = False
+      end
+      object SG_D1: TStringGrid
+        Left = 0
+        Height = 514
+        Top = 18
+        Width = 696
+        Align = alLeft
+        ColCount = 4
+        DefaultColWidth = 200
+        DefaultRowHeight = 20
+        FixedCols = 2
+        FixedRows = 0
+        Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRowSelect, goSmoothScroll]
+        RowCount = 6
+        TabOrder = 0
+        ColWidths = (
+          227
+          200
+          200
+          200
+        )
+      end
+    end
+    object TabSheet4: TTabSheet
+      Caption = 'Quadro F1'
+      ClientHeight = 532
+      ClientWidth = 1176
+      object Label4: TLabel
+        Left = 0
+        Height = 18
+        Top = 0
+        Width = 1176
+        Align = alTop
+        Caption = 'Dati relativi a quote di piani di ammortamento'
+        Font.CharSet = ANSI_CHARSET
+        Font.Color = clBlue
+        Font.Height = -16
+        Font.Name = 'Arial Rounded MT Bold'
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        ParentFont = False
+      end
+      object SG_F1: TStringGrid
+        Left = 0
+        Height = 514
+        Top = 18
+        Width = 656
+        Align = alLeft
+        ColCount = 4
+        DefaultColWidth = 200
+        DefaultDrawing = False
+        DefaultRowHeight = 20
+        FixedCols = 2
+        FixedRows = 0
+        RowCount = 60
+        TabOrder = 0
+        OnDrawCell = SG_V1DrawCell
+        ColWidths = (
+          227
+          200
+          200
+          200
+        )
+      end
+    end
+    object TabSheet5: TTabSheet
+      Caption = 'Quadro V1'
+      ClientHeight = 532
+      ClientWidth = 1176
+      object Label5: TLabel
+        Left = 0
+        Height = 18
+        Top = 0
+        Width = 1176
+        Align = alTop
+        Caption = 'Dati relativi ai periodi, alle retribuzioni e ai contributi dovuti per i periodi pregressi'
+        Font.CharSet = ANSI_CHARSET
+        Font.Color = clBlue
+        Font.Height = -16
+        Font.Name = 'Arial Rounded MT Bold'
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        ParentFont = False
+      end
+      object SG_V1: TStringGrid
+        Left = 0
+        Height = 514
+        Top = 18
+        Width = 656
+        Align = alLeft
+        ColCount = 4
+        DefaultColWidth = 200
+        DefaultDrawing = False
+        DefaultRowHeight = 20
+        FixedCols = 2
+        FixedRows = 0
+        RowCount = 60
+        TabOrder = 0
+        OnDrawCell = SG_V1DrawCell
+        ColWidths = (
+          227
+          200
+          200
+          200
+        )
+        Cells = (
+          47
+          0
+          0
+          'Causale Variazione'
+          0
+          1
+          'Cod Motivo Utilizzo'
+          0
+          2
+          'Giorno Inizio'
+          0
+          3
+          'Giorno Fine'
+          0
+          4
+          '/INQUADRAMENTO'
+          0
+          5
+          'Tipo Impiego'
+          0
+          6
+          'Tipo Servizio'
+          0
+          7
+          '% Retribuzione'
+          0
+          8
+          'Contratto'
+          0
+          9
+          'Qualifica'
+          0
+          10
+          'Part-Time : Tipo'
+          0
+          11
+          'Part-Time : Percentuale'
+          0
+          12
+          'Orario Sett. Ridotto'
+          0
+          13
+          'Orario Sett. Comp.'
+          0
+          14
+          'Regime Fine'
+          0
+          15
+          'Perc. asp. (L.300/70)'
+          0
+          16
+          '/Servizio presso altra amministrazione'
+          0
+          17
+          'Tipo Servizio'
+          0
+          18
+          'C.F. altra amministrazione'
+          0
+          19
+          'Progressivo'
+          0
+          20
+          '/GESTIONE PENSIONISTICA'
+          0
+          21
+          'Codice Gestione'
+          0
+          22
+          'Imponibile'
+          0
+          23
+          'Contributo'
+          0
+          24
+          'Contributo 1%'
+          0
+          25
+          'Imponibile eccedenza massimale'
+          0
+          26
+          'Giorni utili'
+          0
+          27
+          'Maggiorazione pens. D.lgs 165/2007'
+          0
+          28
+          'Retribuzione Virtuale'
+          0
+          29
+          'Eventi Calamitosi'
+          0
+          30
+          'Stipendio tabellare'
+          0
+          31
+          'Importo RIA'
+          0
+          32
+          '/GESTIONE PREVIDENZIALE'
+          0
+          33
+          'Codice Gestione'
+          0
+          34
+          'Contributo TFR'
+          0
+          35
+          'Imponibile TFR'
+          0
+          36
+          'Imponibile TFR Eccedena Massimale'
+          0
+          37
+          'Contributo TFS'
+          0
+          38
+          'Imponibile TFS'
+          0
+          39
+          'Imponibile TFS Eccedenza Massimale'
+          0
+          40
+          'Contributo Sospeso'
+          0
+          41
+          '/GESTIONE CREDITO'
+          0
+          42
+          'Codice Gestione'
+          0
+          43
+          'Imponibile'
+          0
+          44
+          'Contributo'
+          0
+          45
+          'Imponibile eccedenza massimale'
+          0
+          46
+          'Aderente Credito DM 45/2007'
+        )
+      end
+    end
+  end
+  object PageControl2: TPageControl
+    Left = 0
+    Height = 200
+    Top = 34
+    Width = 1184
+    ActivePage = TabSheet6
+    Align = alTop
+    TabIndex = 0
+    TabOrder = 1
+    OnChange = PageControl2Change
+    object TabSheet6: TTabSheet
+      Caption = 'Iscritti'
+      ClientHeight = 172
+      ClientWidth = 1176
+      object ListView1: TListView
+        Left = 0
+        Height = 172
+        Top = 0
+        Width = 592
+        Align = alLeft
+        Columns = <        
+          item
+            Caption = 'ID'
+            Width = 40
+          end        
+          item
+            Caption = 'Nominativo'
+            Width = 200
+          end        
+          item
+            Caption = 'CF'
+            Width = 120
+          end        
+          item
+            Caption = 'E0'
+          end        
+          item
+            Caption = 'E1'
+          end        
+          item
+            Caption = 'F1'
+          end        
+          item
+            Caption = 'V1'
+          end>
+        GridLines = True
+        HideSelection = False
+        ParentFont = False
+        ReadOnly = True
+        RowSelect = True
+        ScrollBars = ssVertical
+        TabOrder = 0
+        ViewStyle = vsReport
+        OnChange = ListView1Change
+      end
+      object TVQuadri: TTreeView
+        Left = 592
+        Height = 172
+        Top = 0
+        Width = 584
+        Align = alClient
+        ReadOnly = True
+        TabOrder = 1
+        OnClick = TVQuadriClick
+        Options = [tvoAutoItemHeight, tvoHideSelection, tvoKeepCollapsedNodes, tvoReadOnly, tvoShowButtons, tvoShowLines, tvoShowRoot, tvoToolTips, tvoThemedDraw]
+        Items.Data = {
+          F9FFFFFF020004000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000000000000
+          00000009000000517561647269204530FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          00000000000000000009000000517561647269204531FFFFFFFFFFFFFFFFFFFF
+          FFFFFFFFFFFF00000000000000000009000000517561647269204631FFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFF0000000000000000000900000051756164726920
+          5631
+        }
+      end
+    end
+  end
+  object Splitter1: TSplitter
+    Cursor = crVSplit
+    Left = 0
+    Height = 8
+    Top = 234
+    Width = 1184
+    Align = alTop
+    Color = 16744448
+    ParentColor = False
+    ResizeAnchor = akTop
+  end
+  object Panel1: TPanel
+    Left = 0
+    Height = 34
+    Top = 0
+    Width = 1184
+    Align = alTop
+    ClientHeight = 34
+    ClientWidth = 1184
+    TabOrder = 3
+    object CBE0: TCheckBox
+      Left = 376
+      Height = 19
+      Top = 8
+      Width = 32
+      Caption = 'E0'
+      Checked = True
+      OnChange = CBE0Change
+      State = cbChecked
+      TabOrder = 0
+    end
+    object CBE1: TCheckBox
+      Left = 416
+      Height = 19
+      Top = 8
+      Width = 32
+      Caption = 'E1'
+      Checked = True
+      OnChange = CBE1Change
+      State = cbChecked
+      TabOrder = 1
+    end
+    object CBF1: TCheckBox
+      Left = 456
+      Height = 19
+      Top = 8
+      Width = 32
+      Caption = 'F1'
+      Checked = True
+      OnChange = CBF1Change
+      State = cbChecked
+      TabOrder = 2
+    end
+    object CBV1: TCheckBox
+      Left = 488
+      Height = 19
+      Top = 8
+      Width = 33
+      Caption = 'V1'
+      Checked = True
+      OnChange = CBV1Change
+      State = cbChecked
+      TabOrder = 3
+    end
+    object Button1: TButton
+      Left = 984
+      Height = 25
+      Top = 2
+      Width = 75
+      Caption = 'Totali'
+      OnClick = Button1Click
+      TabOrder = 4
+    end
+    object Edit1: TEdit
+      Left = 8
+      Height = 23
+      Top = 4
+      Width = 208
+      CharCase = ecUppercase
+      OnChange = Edit1Change
+      TabOrder = 5
+    end
+    object Button2: TButton
+      Left = 216
+      Height = 25
+      Top = 2
+      Width = 40
+      Caption = 'X'
+      OnClick = Button2Click
+      TabOrder = 6
+    end
+  end
+  object BQC: TCheckBox
+    Left = 384
+    Height = 19
+    Top = 244
+    Width = 143
+    Caption = 'Blocca quadro corrente'
+    Checked = True
+    OnChange = CBE0Change
+    State = cbChecked
+    TabOrder = 4
+  end
+end
