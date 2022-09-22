@@ -1,0 +1,20 @@
+object FrmLog: TFrmLog
+  Left = 679
+  Height = 500
+  Top = 223
+  Width = 605
+  Caption = 'Log'
+  ClientHeight = 500
+  ClientWidth = 605
+  LCLVersion = '2.2.0.4'
+  Visible = True
+  object Memo1: TMemo
+    Left = 0
+    Height = 500
+    Top = 0
+    Width = 605
+    Align = alClient
+    ScrollBars = ssAutoBoth
+    TabOrder = 0
+  end
+end

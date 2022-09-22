@@ -26,6 +26,7 @@ type
     { private declarations }
   public
     { public declarations }
+
   end;
 
 var

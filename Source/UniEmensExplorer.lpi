@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectOptions>
+    <Version Value="12"/>
+    <PathDelim Value="\"/>
+    <General>
+      <Flags>
+        <CompatibilityMode Value="True"/>
+      </Flags>
+      <SessionStorage Value="InProjectDir"/>
+      <Title Value="UniEmensExplorer"/>
+      <ResourceType Value="res"/>
+      <UseXPManifest Value="True"/>
+      <Icon Value="0"/>
+    </General>
+    <i18n>
+      <EnableI18N LFM="False"/>
+    </i18n>
+    <BuildModes Count="1">
+      <Item1 Name="Default" Default="True"/>
+    </BuildModes>
+    <PublishOptions>
+      <Version Value="2"/>
+    </PublishOptions>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes Count="1">
+        <Mode0 Name="default"/>
+      </Modes>
+    </RunParams>
+    <RequiredPackages Count="2">
+      <Item1>
+        <PackageName Value="DateTimeCtrls"/>
+      </Item1>
+      <Item2>
+        <PackageName Value="LCL"/>
+      </Item2>
+    </RequiredPackages>
+    <Units Count="11">
+      <Unit0>
+        <Filename Value="UniEmensExplorer.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="ufrmdma2.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FrmDMA2"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="UfrmDma2"/>
+      </Unit1>
+      <Unit2>
+        <Filename Value="uclsuniemens.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="UClsUniEmens"/>
+      </Unit2>
+      <Unit3>
+        <Filename Value="ufrmmain.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FrmMain"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="UFrmMain"/>
+      </Unit3>
+      <Unit4>
+        <Filename Value="uparsexml.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uParseXML"/>
+      </Unit4>
+      <Unit5>
+        <Filename Value="ufrmdma2totali.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FrmDMA2Totali"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="ufrmdma2Totali"/>
+      </Unit5>
+      <Unit6>
+        <Filename Value="uutilfunz.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit6>
+      <Unit7>
+        <Filename Value="uclsuniemenstab.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="UClsUniEmensTab"/>
+      </Unit7>
+      <Unit8>
+        <Filename Value="u2clsuniemens.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="U2ClsUniemens"/>
+      </Unit8>
+      <Unit9>
+        <Filename Value="ufrmlog.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FrmLog"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="UFrmLog"/>
+      </Unit9>
+      <Unit10>
+        <Filename Value="uxmlutil.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="UXMLUtil"/>
+      </Unit10>
+    </Units>
+  </ProjectOptions>
+  <CompilerOptions>
+    <Version Value="11"/>
+    <PathDelim Value="\"/>
+    <Target>
+      <Filename Value="UniEmensExplorer"/>
+    </Target>
+    <SearchPaths>
+      <IncludeFiles Value="$(ProjOutDir)"/>
+      <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
+    </SearchPaths>
+    <Linking>
+      <Options>
+        <Win32>
+          <GraphicApplication Value="True"/>
+        </Win32>
+      </Options>
+    </Linking>
+  </CompilerOptions>
+  <Debugging>
+    <Exceptions Count="3">
+      <Item1>
+        <Name Value="EAbort"/>
+      </Item1>
+      <Item2>
+        <Name Value="ECodetoolError"/>
+      </Item2>
+      <Item3>
+        <Name Value="EFOpenError"/>
+      </Item3>
+    </Exceptions>
+  </Debugging>
+</CONFIG>

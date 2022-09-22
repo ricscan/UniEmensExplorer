@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, Grids, Menus,
-  StdCtrls, UClsUniEmens;
+  StdCtrls, U2ClsUniEmens;
 
 type
 
@@ -85,7 +85,7 @@ end;
 
 procedure TFrmDMA2Totali.LoadPosPa(aPosPa: TPosPa);
 var
-   t,t1:integer;
+   t,t1,tsgravi,n:integer;
    QE0:TQuadriE0;
    QF1:TQuadriF1;
    QV1:TQuadriV1;
@@ -94,7 +94,7 @@ var
    TotDipC1:Integer;
    TotImpC1:Currency = 0;
    TotContrC1:Currency = 0;
-
+   TotSgravi :Currency = 0;
    TotDipE0:Integer;
    TotDipC2:Integer;
    TotQuadriC2,TotImpC2,TotContrC2,TotImpContrAdd1:Currency;
@@ -115,6 +115,7 @@ begin
   TotImpC2   :=0;
   TotContrC2 :=0;
   TotImpContrAdd1 :=0;
+  TotSgravi       :=0;
 
   TotDipC2Risc :=0;
   TotContRisc  :=0;
@@ -148,15 +149,20 @@ begin
   begin
 
     QE0:=PosPa.Items[t].QuadriE0;
-    TotDipE0 := QE0.Count;
+    //TotDipE0 := QE0.Count;
     for t1:=0 to QE0.Count-1 do
     begin
 
+      TOTDipE0:=TotDipE0+1;
       G:=QE0.items[t1].Gestioni;
       //CPDEL
       TotImpC2        :=TotImpC2+G.GestPensionistica.Imponibile;
       TotContrC2      :=TotContrC2+G.GestPensionistica.Contributo;
       TotImpContrAdd1 :=TotImpContrAdd1+g.GestPensionistica.Contrib1PerCento;
+      n:=Length(G.GestPensionistica.RecuperoSgravi);
+      for tsgravi:=0 to n-1 do begin
+        TotSgravi:=TotSgravi+G.GestPensionistica.RecuperoSgravi[tsgravi].importo
+      end;
 
       //TFR
       if g.GestPrevidenziale.ContributoTFR>0
@@ -171,7 +177,7 @@ begin
       TotContrTFSC6 :=TotContrTFSC6+G.GestPrevidenziale.ContributoTFS;
 
       //ENPDEP
-       if g.ENPDEP.Contributo>0
+      if g.ENPDEP.Contributo>0
         then TotDipC8ENPDEP:=TotDipC8ENPDEP+1;
       TotImpENPDEPC8 :=TotImpENPDEPC8+G.ENPDEP.Imponibile;
       TotContrENPDEPC8 :=TotContrENPDEPC8+G.ENPDEP.Contributo;
@@ -182,6 +188,9 @@ begin
       TotImpCREDITIC9 :=TotImpCREDITIC9+G.GestCredito.Imponibile;
       TotContrCREDITIC9 :=TotContrCREDITIC9+G.GestCredito.Contributo;
     end;
+
+    //SGRAVIO
+
 
     QF1:=PosPa.Items[t].QuadriF1;
     for t1:=0 to QF1.Count-1 do
@@ -259,7 +268,17 @@ begin
   SGZ.Cells[4,riga]:=CurrToStrPt(TotContrC2);
   SGZ.Cells[5,riga]:=CurrToStrPt(TotImpContrAdd1);
   SGZ.Cells[9,riga]:=CurrToStrPt(TotContrC2+TotImpContrAdd1);
-  riga:=riga+1;
+
+  riga:=Riga+1;
+  SGZ.Cells[0,riga]:=' ';
+  SGZ.Cells[1,riga]:='SGRAVI';
+  SGZ.Cells[9,riga]:=CurrToStrPt(TotSgravi);
+  riga:=Riga+1;
+  SGZ.Cells[0,riga]:=' ';
+  SGZ.Cells[1,riga]:='Totale CPDEL';
+  SGZ.Cells[9,riga]:=CurrToStrPt(TotContrC2+TotImpContrAdd1-TotSgravi);
+
+  riga:=riga+2;
   SGZ.Cells[0,riga]:='2';
   SGZ.Cells[1,riga]:='Riscatti';
   SGZ.Cells[2,riga]:=IntToStr(TotDipRisc);
@@ -301,6 +320,8 @@ begin
    SGZ.cells[3,riga]:=CurrToStrPt(TotImpCREDITIC9);
    SGZ.cells[4,riga]:=CurrToStrPt(TotContrCREDITIC9);
    SGZ.Cells[9,riga]:=CurrToStrPt(TotContrCREDITIC9);
+
+
 
 end;
 
